@@ -24,7 +24,7 @@ const Navbar = () => {
             <a href="#" className="text-gray-700 hover:text-red-600 transition">
               Electric Guitars
             </a>
-            <a href="#" className="text-gray-700 hover:text-red-600 transition">
+            <a href="" className="text-gray-700 hover:text-red-600 transition">
               Acoustic Guitars
             </a>
             <a href="#" className="text-gray-700 hover:text-red-600 transition">
