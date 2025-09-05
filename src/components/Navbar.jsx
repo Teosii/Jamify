@@ -13,17 +13,18 @@ import {
   FaYoutube,
   FaUser,
 } from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="bg-white shadow-sm py-4 px-6 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-8">
-          <div className="text-2xl font-bold text-red-600">JAMIFY</div>
+          <Link to='/' className="text-2xl font-bold text-red-600">JAMIFY</Link>
           <div className="hidden md:flex space-x-6">
-            <a href="#" className="text-gray-700 hover:text-red-600 transition">
+            <Link to="/electric-guitars" className="text-gray-700 hover:text-red-600 transition">
               Electric Guitars
-            </a>
+            </Link>
             <a href="" className="text-gray-700 hover:text-red-600 transition">
               Acoustic Guitars
             </a>
