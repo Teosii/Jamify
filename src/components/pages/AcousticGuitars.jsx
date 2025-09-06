@@ -2,16 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { guitars } from "../data";
 
-const ElectricGuitars = () => {
-  const electricGuitars = guitars.filter(g => g.type === "Electric");
+const AcousticGuitars = () => {
+  const acousticGuitars = guitars.filter((g) => g.type === "Acoustic");
 
   return (
     <section className="bg-gray-50 py-10 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8">Electric Guitars</h2>
+        <h2 className="text-3xl font-bold mb-8">Acoustic Guitars</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {electricGuitars.map((guitar) => (
-     <Link
+          {acousticGuitars.map((guitar) => (
+            <Link
               key={guitar.id}
               to={`/guitars/${guitar.id}`}
               className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center hover:shadow-xl transition cursor-pointer"
@@ -47,4 +47,4 @@ const ElectricGuitars = () => {
   );
 };
 
-export default ElectricGuitars;
+export default AcousticGuitars;

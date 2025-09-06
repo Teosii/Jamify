@@ -25,15 +25,15 @@ const Navbar = () => {
             <Link to="/electric-guitars" className="text-gray-700 hover:text-red-600 transition">
               Electric Guitars
             </Link>
-            <a href="" className="text-gray-700 hover:text-red-600 transition">
+           <Link to="/acoustic-guitars" className="text-gray-700 hover:text-red-600 transition">
               Acoustic Guitars
-            </a>
-            <a href="#" className="text-gray-700 hover:text-red-600 transition">
+            </Link>
+           <Link to="/basses" className="text-gray-700 hover:text-red-600 transition">
               Basses
-            </a>
-            <a href="#" className="text-gray-700 hover:text-red-600 transition">
-              Amps
-            </a>
+            </Link>
+           <Link to="/learn" className="text-gray-700 hover:text-red-600 transition">
+              Learn
+            </Link>
           </div>
         </div>
         <div className="flex items-center space-x-4">

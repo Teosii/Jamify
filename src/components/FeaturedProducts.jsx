@@ -59,7 +59,7 @@ const FeaturedProducts = () => (
               <h3 className="text-lg font-semibold text-gray-800">{p.name}</h3>
               <p className="text-gray-600 text-sm mt-1">{p.model}</p>
               <div className="mt-4 flex justify-between items-center">
-                <span className="text-lg font-bold text-gray-900">
+                <span className="text-lg font-bold text-gray-900 ">
                   {p.price}
                 </span>
                 <button className="text-red-600 hover:text-red-800">
@@ -69,11 +69,6 @@ const FeaturedProducts = () => (
             </div>
           </div>
         ))}
-      </div>
-      <div className="mt-12 text-center">
-        <button className="border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-900 hover:text-white transition-all">
-          View All Products
-        </button>
       </div>
     </div>
   </section>
