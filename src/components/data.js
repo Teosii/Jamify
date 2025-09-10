@@ -4,63 +4,114 @@ export const guitars = [
     name: "Fender Squier Sonic Stratocaster® HSS",
     type: "Electric",
     price: "$1,200.00",
-    image:"https://engadinemusic.com.au/cdn/shop/files/Fender-Squier-Sonic-Stratocaster-HSS-LIMITED-COLOUR-EDITION-Electric-Guitar-Fender_600x.png?v=1746584940", 
+    images:[
+      "https://engadinemusic.com.au/cdn/shop/files/Fender-Squier-Sonic-Stratocaster-HSS-LIMITED-COLOUR-EDITION-Electric-Guitar-Fender_600x.png?v=1746584940", 
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118220857_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118220857_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118220857_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118220857_fen_ins_hbk_1_nr.png"
+    ],
+    features: [
+      "Heirloom™ Nitrocellulose Lacquer finish",
+      "Pure Vintage ’61 Strat® Single-Coil Pickups, Advanced Electronics and S-1™ Switching",
+      "Stainless Steel Frets",
+      "Select Alder Body with Ultra Contours and Tapered Neck Hee",
+
+    ]
   },
   {
     id: 2,
-    name: "American Ultra Luxe Vintage '60s Stratocaster® HSS",
+    name: "American Ultra Luxe Vintage '60s Stratocaster®",
     type: "Electric",
     price: "$1,300.00",
-    image:
+    images:[
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDWhz0XBj_UUamoXMOmvSGK4EEdbm15ea7Pg&s",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118230840_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118230840_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118230840_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118230840_fen_ins_hbk_1_nr.png"
+    ]
   },
   {
     id: 3,
     name: "American Ultra Luxe Vintage '60s Stratocaster®",
     type: "Electric",
     price: "$1,250.00",
-    image:
+    images:[
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsPL1byEWJjTW9gZrYC1UUyu2uruoQELno_g&s",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118220883_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118220883_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118220883_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118220883_fen_ins_hbk_1_nr.png"
+
+    ]
   },
   {
     id: 4,
     name: "American Ultra Luxe Vintage '50s Telecaster®",
     type: "Electric",
     price: "$1,150.00",
-    image:
+    images:[
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBGS3eIV22LeKzO5S5mtk5IgaUAKALoM2-vA&s",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10099/0118242850_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10099/0118242850_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10099/0118242850_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10099/0118242850_fen_ins_hbk_1_nr.png"
+    ]
   },
   {
     id: 5,
-    name: "Squier Mini Stratocaster®, Laurel FB, Shell Pink",
+    name: "ST62 Fiesta Red Electric Guitar",
     type: "Electric",
     price: "$1,900.00",
-    image:
-      "https://www.sweelee.com.sg/cdn/shop/products/products_2FF03-037-0121-556_2FF03-037-0121-556_1609917879290.jpg?v=1609917886&width=2048",
+    images:[
+      "https://www.artistguitars.com.au/assets/full/16418.jpg?20250813155752",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118230840_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118230840_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118230840_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118230840_fen_ins_hbk_1_nr.png"
+    ]
   },
   {
     id: 6,
-    name: "Fender Squier Sonic Stratocaster® California Blue",
+    name: "Squier Sonic® Mustang® HH, California Blue",
     type: "Electric",
     price: "$1,400.00",
-    image:
+    images:[
       "https://s3-eu-west-1.amazonaws.com/webshop/data/thumbs/64/64cea27474a41e4e9c733b257b5deb657fd0a452.PNG",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10003/0373701526_sqr_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10003/0373701526_sqr_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10003/0373701526_sqr_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10003/0373701526_sqr_ins_hbk_1_nr.png"
+
+    ]
   },
   {
     id: 7,
     name: "Squier Sonic Stratocaster®, Black, Left Handed",
     type: "Electric",
     price: "$1,100.00",
-    image:
+    images:[
       "https://m.media-amazon.com/images/I/51cT0L9dvYL._AC_.jpg",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10013/0373203506_sqr_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10013/0373203506_sqr_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10013/0373203506_sqr_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10013/0373203506_sqr_ins_hbk_1_nr.png"
+
+    ]
   },
   {
     id: 8,
-    name: "Fender Player Stratocaster, Maple FB®, Black",
+    name: "Player II Modified Active Precision Bass",
     type: "Electric",
     price: "$1,000.00",
-    image:
-      "https://www.sweelee.com.sg/cdn/shop/products/F03-014-4502-506_1538547065547.jpg?v=1538547745&width=2050",
+    images:[
+      "https://zedem.ca/cdn/shop/files/0147492310_fen_ins_frt_1_rr_186x526.png?v=1742910851",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10083/0147492310_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10083/0147492310_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10095/0147492310_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10095/0147492310_fen_ins_hbk_1_nr.png"
+    ]
   },
   {
     id: 9,

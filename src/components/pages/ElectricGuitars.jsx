@@ -17,7 +17,7 @@ const ElectricGuitars = () => {
               className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center hover:shadow-xl transition cursor-pointer"
             >
               <img
-                src={guitar.image}
+                src={guitar.images[0]} 
                 alt={guitar.name}
                 className="h-64 object-contain mb-4"
               />

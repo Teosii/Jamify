@@ -29,7 +29,11 @@ const HeroSection = () => {
             <span className="text-red-600">50's</span> Stratocaster
           </h1>
           <p className="text-gray-600 max-w-md">
-          The Fender® Stratocaster® was light years ahead of its contemporaries when it was introduced in 1954, instantly becoming a timeless classic with its ergonomically contoured double-cutaway body, versatile triple pickup configuration and inventive spring-loaded tremolo bridge.
+            The Fender® Stratocaster® was light years ahead of its
+            contemporaries when it was introduced in 1954, instantly becoming a
+            timeless classic with its ergonomically contoured double-cutaway
+            body, versatile triple pickup configuration and inventive
+            spring-loaded tremolo bridge.
           </p>
 
           <div className="flex space-x-4 pt-2">
@@ -70,7 +74,7 @@ const HeroSection = () => {
         <div className="md:w-1/2 relative flex justify-center mt-16 md:mt-0 guitar-container">
           <img
             src="https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10075/0266240500_fen_ins_frt_1_rr.png"
-            alt="Standard Stratocaster" 
+            alt="Standard Stratocaster"
             className="max-w-md md:max-w-lg guitar-shadow floating"
           />
 
@@ -110,6 +114,21 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="relative w-full h-screen">
+        {/* Fullscreen Image */}
+        <img
+          className="w-full h-full object-cover"
+          src="https://i.pinimg.com/1200x/74/f1/9e/74f19e8760520aee72e9bfb24c55d7b8.jpg"
+          alt="Guitar"
+        />
+
+        {/* Button over image */}
+        <a href="/electric-guitars"  className="absolute top-1/2 left-1/2 -translate-x-1/2 bg-white text-black px-8 py-4 rounded-lg hover:bg-gray-800 transition"
+        >
+          Discover more
+        </a>
       </div>
 
       {/* Background Elements */}

@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { routes } from "./routes/Routes";
 import Navbar from "./components/Navbar";
+import "swiper/css";
+
 
 export default function App() {
   return (
