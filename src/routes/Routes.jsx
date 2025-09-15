@@ -9,6 +9,7 @@ import HeroSection from "../components/HeroSection";
 import FeaturedProducts from "../components/FeaturedProducts";
 import { Footer, Newsletter } from "../components/Footer";
 import Login from "../components/pages/Login";
+import Signup from "../components/pages/Signup";
 
 export const routes = [
   {
@@ -49,5 +50,9 @@ export const routes = [
   {
     path: "/Login",
     element: <Login/>,
+  },
+  {
+    path: "/Signup",
+    element: <Signup/>
   }
 ];
