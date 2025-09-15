@@ -1,3 +1,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.chord-diagram {
+    font-family: Arial, sans-serif;
+    position: relative;
+    width: 120px;
+    height: 150px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    margin: 0 auto;
+}
+.chord-name {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #333;
+}
+.chord-fretboard {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    margin-bottom: 5px;
+}
+.chord-string {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chord-finger {
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+.chord-open {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+.chord-muted {
+    font-size: 12px;
+}
+.rhythm-pattern {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+.beat {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+.downstroke { background-color: #3b82f6; }
+.upstroke { background-color: #ef4444; }
+.muted { background-color: #94a3b8; }
+.slide { background-color: #f59e0b; }

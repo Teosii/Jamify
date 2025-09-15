@@ -11,10 +11,12 @@
   },
   "private": true,
   "dependencies": {
+    "aos": "^2.3.4",
     "body-parser": "^2.2.0",
     "browserslist": "^4.25.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "feather-icons": "^4.29.2",
     "mysql2": "^3.14.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
