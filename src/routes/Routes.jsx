@@ -8,15 +8,19 @@ import LearnPage from "../components/pages/LearnPage"
 import HeroSection from "../components/HeroSection";
 import FeaturedProducts from "../components/FeaturedProducts";
 import { Footer, Newsletter } from "../components/Footer";
+import Login from "../components/pages/Login";
+import Signup from "../components/pages/Signup";
 
 export const routes = [
   {
     path: "/",
     element: [
+      <>
       <HeroSection />,
       <FeaturedProducts />,
       <Newsletter />,
       <Footer />,
+      </>
     ],
   },
   {
@@ -43,4 +47,12 @@ export const routes = [
     path: "*",
     element: <Navigate to="/" replace />,
   },
+  {
+    path: "/Login",
+    element: <Login/>,
+  },
+  {
+    path: "/Signup",
+    element: <Signup/>
+  }
 ];

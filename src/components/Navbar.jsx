@@ -43,9 +43,9 @@ const Navbar = () => {
           <button className="p-2 text-gray-600 hover:text-red-600 transition">
             <FaShoppingCart />
           </button>
-          <button className="p-2 text-gray-600 hover:text-red-600 transition">
+         <Link to="/login" className="p-2 text-gray-600 hover:text-red-600 transition">
             <FaUser />
-          </button>
+          </Link>
           <button className="md:hidden p-2 text-gray-600 hover:text-red-600 transition">
             <FaBars />
           </button>
