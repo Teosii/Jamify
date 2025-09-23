@@ -1,9 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { guitars } from "../data";
-
-// Import Swiper React components + modules
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { Footer } from "../Footer";
 
 // Import Swiper styles
 import "swiper/css";
@@ -52,8 +51,8 @@ const GuitarDetail = () => {
         </div>
 
         {/* RIGHT: Guitar details */}
-        <div className="flex flex-col pt-7 px-20">
-          <h2 className="text-4xl font-bold mb-4">{guitar.name}</h2>
+        <div className="flex flex-col pt-20 px-20">
+          <h2 className="text-4xl font-bold mb-5">{guitar.name}</h2>
           <p className="text-xl text-gray-600 mb-2">{guitar.type} Guitar</p>
           <p className="text-2xl font-semibold text-gray-800 mb-6">
             {guitar.price}
@@ -69,20 +68,43 @@ const GuitarDetail = () => {
           )}
 
           <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition w-fit">
-            Buy Now
+            <Link to="/shoppingCart">Buy Now</Link>
           </button>
         </div>
       </div>
 
-      {/* Summary BELOW the pictures */}
-      {guitar.summary && (
-        <div className="px-5 md:px-10 py-10">
-          <h3 className="text-2xl font-bold mb-4">Summary</h3>
-          <p className="text-gray-700 leading-relaxed whitespace-normal break-words max-w-2xl text-center md:text-left">
-            {guitar.summary}
-          </p>
+      {/* Summary + Shipping/Returns Section */}
+      <div className="px-5 md:px-10 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+        {/* Summary */}
+        {guitar.summary && (
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Summary</h3>
+            <p className="text-gray-700 leading-relaxed whitespace-normal break-words max-w-2xl">
+              {guitar.summary}
+            </p>
+          </div>
+        )}
+
+        {/* Shipping & Returns */}
+        <div>
+          <h3 className="text-2xl font-bold mb-5">Shipping & Returns</h3>
+          <div className="mb-6">
+            <h4 className="text-lg font-semibold mb-1">Shipping</h4>
+            <p className="text-gray-600">
+              Free shipping on orders{" "}
+              <span className="font-medium">$1500+</span>.{" "}
+            </p>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-semibold mb-1">Returns</h4>
+            <p className="text-gray-600">
+              Return or exchange your purchase for any reason within{" "}
+              <span className="font-medium">30 days of receipt</span>.{" "}
+            </p>
+          </div>
         </div>
-      )}
+      </div>
 
       {/* You May Also Like Section */}
       <div className="px-5 md:px-10 py-10">
@@ -111,7 +133,7 @@ const GuitarDetail = () => {
       </div>
 
       {/* Features Section */}
-      <div className="flex flex-wrap justify-between items-center py-10">
+      <div className="flex flex-wrap justify-between items-center py-20">
         {/* Feature 1 */}
         <div className="flex flex-col items-center text-center w-1/2 md:w-1/4 px-2 mb-4 md:mb-0">
           <BsShieldCheck className="w-10 h-10 mb-4 text-gray-700" />
@@ -150,6 +172,7 @@ const GuitarDetail = () => {
           </p>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -15,6 +15,7 @@ export const guitars = [
       "Heirloom™ Nitrocellulose Lacquer finish",
       "Pure Vintage ’61 Strat® Single-Coil Pickups, Advanced Electronics and S-1™ Switching",
       "Stainless Steel Frets",
+      "Quartersawn Maple Modern D profile neck",
       "Select Alder Body with Ultra Contours and Tapered Neck Hee",
     ],
     summary:
@@ -22,7 +23,7 @@ export const guitars = [
   },
   {
     id: 2,
-    name: "Classic Vibe '60s Jazzmaster",
+    name: "Classic Vibe '60s Coral Jazzmaster®",
     type: "Electric",
     price: "$1,300.00",
     images: [
@@ -36,6 +37,7 @@ export const guitars = [
       "100% Designed by Fender",
       "Inspired by 1960s-era Jazzmaster models",
       "Vintage-tint gloss neck finish",
+      "Fender-Designed alnico pickups",
       "Nickel-plated hardware",
     ],
     summary:
@@ -57,6 +59,7 @@ export const guitars = [
       "Heirloom™ Nitrocellulose Lacquer finish",
       "Pure Vintage ’61 Strat® Single-Coil Pickups, Advanced Electronics and S-1™ Switching",
       "Stainless Steel Frets",
+       "Quartersawn Maple Modern D profile neck",
       "Select Alder Body with Ultra Contours and Tapered Neck Hee",
     ],
     summary:
@@ -78,6 +81,7 @@ export const guitars = [
       "Heirloom™ Nitrocellulose Lacquer finish",
       "Pure Vintage '51 Tele® Single-Coil Pickups, Advanced Electronics and S-1™ Switching",
       "Stainless Steel Frets",
+      "Quartersawn Modern D profile neck",
       "Select Ash Body with Ultra Contours and Tapered Neck Hee",
     ],
     summary:
@@ -85,7 +89,7 @@ export const guitars = [
   },
   {
     id: 5,
-    name: "ST62 Fiesta Red Electric Guitar",
+    name: "American Ultra Luxe Vintage '60s Stratocaster® HSS",
     type: "Electric",
     price: "$1,900.00",
     images: [
@@ -100,6 +104,7 @@ export const guitars = [
       "Pure Vintage '61 Strat® Single-Coils and Haymaker™ Humbucker, Advanced Electronics and S-1™ Switching",
       "Stainless Steel Frets",
       "Select Alder Body with Ultra Contours and Tapered Neck Heel",
+      "10-14 Compound Radius fingerboard with Ultra Rolled Edges and Luminlay® side dots",
     ],
     summary:
       "Representing the pinnacle of innovation and craftsmanship, Fender American Ultra Luxe sets the benchmark for premium electric instruments. The new American Ultra Luxe Vintage series takes it a step further, showcasing the finest of Fender heritage – where timeless classics meet uncompromising modern refinement.",
@@ -120,6 +125,7 @@ export const guitars = [
       "Short 24' scale length",
       "Squier humbucking pickups (HH)",
       "6-saddle hardtail bridge",
+      "Chrome hardware",
       "Sealed-gear tuning machines",
     ],
     summary:
@@ -141,31 +147,33 @@ export const guitars = [
       "100% Designed by Fender",
       "Inspired by 1960s-era Jazzmaster models",
       "Vintage-tint gloss neck finish",
+      "6-saddle tremolo bridge",
       "Nickel-plated hardware",
     ],
     summary:
-    "The Squier Sonic® Stratocaster® HT H is ready to launch any musical adventure into warp speed, offering iconic Fender® style and inspiring tone for players at any stage. This Strat® sports a slim and inviting C-shaped neck profile and a thin, lightweight body for optimal playing comfort while a Squier® humbucking (H) bridge pickup delivers substantial, high-output tone. Further details of this model include a 6-saddle hardtail bridge (HT) for reliable intonation, sealed-gear tuning machines for smooth, accurate tuning and durable chrome-plated hardware that is sure to catch the spotlight."
+      "The Squier Sonic® Stratocaster® HT H is ready to launch any musical adventure into warp speed, offering iconic Fender® style and inspiring tone for players at any stage. This Strat® sports a slim and inviting C-shaped neck profile and a thin, lightweight body for optimal playing comfort while a Squier® humbucking (H) bridge pickup delivers substantial, high-output tone. Further details of this model include a 6-saddle hardtail bridge (HT) for reliable intonation, sealed-gear tuning machines for smooth, accurate tuning and durable chrome-plated hardware that is sure to catch the spotlight.",
   },
-  {
+    {
     id: 8,
-    name: "Player II Modified Active Precision Bass",
+    name: "Butterscotch Blonde Standard Telecaster®",
     type: "Electric",
-    price: "$1,000.00",
+    price: "$1,120.00",
     images: [
-      "https://zedem.ca/cdn/shop/files/0147492310_fen_ins_frt_1_rr_186x526.png?v=1742910851",
-      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10083/0147492310_fen_ins_frt_1_rr.png",
-      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10083/0147492310_fen_ins_bck_1_rl.png",
-      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10095/0147492310_fen_ins_hft_1_nr.png",
-      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10095/0147492310_fen_ins_hbk_1_nr.png",
+      "https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/_60/608517/19758349_800.jpg",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10075/0266021550_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10075/0266021550_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10075/0266021550_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10075/0266021550_fen_ins_hbk_1_nr.png",
     ],
     features: [
-      "100% Designed by Fender",
-      "Inspired by 1960s-era Jazzmaster models",
-      "Vintage-tint gloss neck finish",
-      "Nickel-plated hardware",
+      "Poplar body with gloss finish",
+      "Fender Standard ceramic single-coil Telecaster pickups",
+      "9.5-radius fingerboard",
+      "String-through-body Tele bridge with satin chrome saddles",
+      "Modern C”-shaped maple neck with satin finish",
     ],
     summary:
-    "The Player II Modified Active Precision Bass® is a classic bass with the modern player in mind. Everything about the neck is designed for fast and fluid playability, from the Modern “C”-profile with silky satin urethane finish on the back to the comfy 9.5”-radius slab rosewood or 1-piece maple fingerboard with smooth rolled edges and 20 medium jumbo frets. The alder body provides classic Fender punch and is available in a variety of exciting new finishes"
+      "A direct descendent of the Esquire® - the earliest Fender® solid-body electric guitar design, the Telecaster® was launched in 1951 with a dual pickup layout for unprecedented amplified performance, quickly becoming a must-have for generations of music makers."
   },
   {
     id: 9,
@@ -228,5 +236,26 @@ export const guitars = [
     type: "Acoustic",
     price: "$159.00",
     image: "https://mannsmusic.2dimg.com/4/rotated_no_ps___1_60fa94ecc1.jpg",
+  },
+  {
+    id: 17,
+    name: "Player II Modified Active Precision Bass",
+    type: "Bass",
+    price: "$1,000.00",
+    images: [
+      "https://zedem.ca/cdn/shop/files/0147492310_fen_ins_frt_1_rr_186x526.png?v=1742910851",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10083/0147492310_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10083/0147492310_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10095/0147492310_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10095/0147492310_fen_ins_hbk_1_nr.png",
+    ],
+    features: [
+      "100% Designed by Fender",
+      "Inspired by 1960s-era Jazzmaster models",
+      "Vintage-tint gloss neck finish",
+      "Nickel-plated hardware",
+    ],
+    summary:
+      "The Player II Modified Active Precision Bass® is a classic bass with the modern player in mind. Everything about the neck is designed for fast and fluid playability, from the Modern “C”-profile with silky satin urethane finish on the back to the comfy 9.5”-radius slab rosewood or 1-piece maple fingerboard with smooth rolled edges and 20 medium jumbo frets. The alder body provides classic Fender punch and is available in a variety of exciting new finishes",
   },
 ];

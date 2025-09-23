@@ -2,17 +2,19 @@ const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2");
 const bodyParser = require("body-parser");
+require("dotenv").config(); // load .env
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-//lidhja me databaze
+// Database connection
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Hoxhagerta14",
-  database: "guitar_store",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 });
 
 db.connect((err) => {
@@ -64,4 +66,7 @@ app.delete("/guitars/:id", (req, res) => {
   });
 });
 
-app.listen(5000, () => console.log(`Server is running on port 5000`));
+// Start server
+app.listen(process.env.PORT, () =>
+  console.log(`Server is running on port ${process.env.PORT}`)
+);

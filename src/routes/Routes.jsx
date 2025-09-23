@@ -10,6 +10,7 @@ import FeaturedProducts from "../components/FeaturedProducts";
 import { Footer, Newsletter } from "../components/Footer";
 import Login from "../components/pages/Login";
 import Signup from "../components/pages/Signup";
+import ShoppingCart from "../components/pages/ShoppingCart";
 
 export const routes = [
   {
@@ -43,9 +44,9 @@ export const routes = [
     path: "/learn",
     element: <LearnPage/>,
   },
-  {
-    path: "*",
-    element: <Navigate to="/" replace />,
+    {
+    path: "/shoppingCart",
+    element: <ShoppingCart/>,
   },
   {
     path: "/Login",
@@ -54,5 +55,9 @@ export const routes = [
   {
     path: "/Signup",
     element: <Signup/>
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" replace />,
   }
 ];
