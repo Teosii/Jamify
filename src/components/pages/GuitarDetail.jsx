@@ -22,7 +22,9 @@ const GuitarDetail = () => {
   }
 
   // Pick 4 other guitars for "You May Also Like"
-  const recommended = guitars.filter((g) => g.id !== guitar.id).slice(0, 4);
+  const recommended = guitars.filter(
+    (g) => g.type === guitar.type && g.id !== guitar.id
+  );
 
   return (
     <>
@@ -107,7 +109,7 @@ const GuitarDetail = () => {
       </div>
 
       {/* You May Also Like Section */}
-      <div className="px-5 md:px-10 py-10">
+      <div className="px-6 md:px-10 py-10">
         <h3 className="text-2xl font-bold mb-6">You May Also Like</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {recommended.map((rec) => (
@@ -118,7 +120,7 @@ const GuitarDetail = () => {
               className="border rounded-lg p-4 shadow-sm hover:shadow-md transition block"
             >
               <img
-                src={rec.images[0]}
+                src={rec.images?.[0] || "/fallback.jpg"}
                 alt={rec.name}
                 className="w-full h-60 object-contain mb-4"
               />

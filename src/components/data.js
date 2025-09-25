@@ -177,65 +177,185 @@ export const guitars = [
   },
   {
     id: 9,
-    name: "Fender FA-25CE Dreadnought, 3-Color Sunburst",
+    name: "California Standard Redondo™",
     type: "Acoustic",
     price: "$400.00",
-    image:
-      "https://www.sweelee.com.sg/cdn/shop/files/products_2FF03-097-1913-032_2FF03-097-1913-032_1719214185720.jpg?v=1719214364&width=2048",
+    images: [
+      "https://media.guitarcenter.com/is/image/MMGS7/M20486000001000-02-600x600.jpg",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10101/0974200500_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10101/0974200500_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10101/0974200500_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10101/0974200500_fen_ins_hbk_1_nr.png",
+    ],
+    features: [
+      "Dreadnought body shape",
+      "All-laminate construction",
+      "Spruce top, sapele back and sides",
+      "Sealed-gear tuning machines",
+      "Gloss finish",
+    ],
+    summary:
+    "Drawing from a storied legacy of reimagining the acoustic experience for daring and adventurous players, California Series acoustics stand out as authentically different, undeniably timeless, and quintessentially Fender®.The dreadnought shape is beloved for its robust, deep tone and versatile personality, making it the go-to choice for any musical playing style from strumming to soloing"
   },
+
   {
     id: 10,
-    name: "Harmony Foundation Series Terra ST Petite OM Natural Satin",
+    name: "Fender FA-15N 3/4 Scale Nylon",
     type: "Acoustic",
     price: "$300.00",
-    image:
-      "https://cdn.shopify.com/s/files/1/2501/6068/files/products_2FHMN-0141037119_2FHMN-0141037119_1709864301960_992x992_crop_center.jpg?v=1709864310",
+    images:[
+      "https://www.fmicassets.com/Damroot/GuitarVert1/10005/0971160121_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10005/0971160121_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10005/0971160121_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10005/0971160121_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10005/0971160121_fen_ins_hbk_1_nr.png",
+    ],
+    features: [
+      "All-laminate construction",
+      "Modern 3+3 headstock",
+      "Walnut bridge",
+      "Mahogany set-neck construction",
+      "Includes gig bag",
+    ],
+    summary:[
+      "The ¾-size nylon-string FA-15N guitar offers a visually stunning instrument at a budget-friendly price. Quality laminate construction with a modern Fender 3+3 headstock and walnut bridge create an instrument that is not only easy to play, but also sounds great. Beginners and developing players will appreciate the style of this guitar, which features a mahogany neck that gives the guitar a lively tone and feel."
+    ]
   },
   {
     id: 11,
-    name: "Fender Classic Design CC-60SCE Concert Natural Electro",
+    name: "CD-60SCE Dreadnought 12-String",
     type: "Acoustic",
     price: "$249.00",
-    image:
+    images: [
       "https://mannsmusic.2dimg.com/4/rotated_no_ps___0970153021_gtr_frt_001_rr-1_9613d5630a.jpg",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970193021_gtr_frt_001_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970193021_gtr_back_001_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970193021_gtr_hdstckfrt_001_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970193021_gtr_hdstckbck_001_nr.png",
+    ],
+    features: [
+      "Single-cutaway 12-string dreadnought body style",
+      "Fender-exclusive CD-1 Fishman® pickup/preamp system",
+      "Solid spruce top with scalloped X-bracing",
+      "Mahogany back and sides",
+      "Easy-to-play neck with rolled fingerboard edges"
+    ],
+    summary:[
+      "Combining powerful onboard electronics - including a built-in tuner - with great tone and easy playability, the CD-60SCE-12 is the perfect choice for a player looking to expand their sonic palette with an affordable, high-quality 12-string acoustic. Featuring a single-cutaway body for easy upper-fret access, a solid spruce top for increased volume and crisp sound, easy-to-play neck and mahogany back and sides, the CD-60SCE-12 is perfect for the couch, the campfire or the coffeehouse - anywhere you want classic Fender playability and sound."
+    ]
   },
   {
     id: 12,
-    name: "Bromo Tahoma D Model, Solid Mahogany Top",
+    name: "Redondo™ Special Mahogany",
     type: "Acoustic",
     price: "$200.00",
-    image:
-      "https://mannsmusic.2dimg.com/4/65ecff468248840fff83c71515b02948aa4a0fa2_6cf5cf184f.jpg",
+    images:[
+      "https://www.austinbazaar.com/product_images/import/FEN-0970913122-2.jpg",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970913122_gtr_frt_001_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970913122_gtr_back_001_rl.png",
+      "https://eu.fender.com/cdn/shop/files/0970710103_fen_ins_hft_1_nr.png?v=1756907914&width=1445",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=850/https://www.fmicassets.com/Damroot/eCommPNG/10002/0970713209_fen_ins_hbk_1_nr.png",
+    ],
+    features: [
+      "Fender-exclusive Redondo™ body shape",
+      "Solid mahogany top, back and sides",
+      "Fender-exclusive Fishman pickup/preamp system",
+      "Mahogany neck with slim-taper C-shaped profile; pau ferro fingerboard and bridge",
+      "Tilt-back 6-in-line headstock",
+    ],
+    summary:[
+      "Bold and brash, the sound of this dreadnought acoustic was designed to inspire from the moment you pick it up. Featuring solid mahogany top, back and sides, the Redondo™ Special has a rich, commanding voice that fills any room. Designed for performing, it also includes a premium Fender- and Fishman®-designed preamp system voiced specifically for the Redondo™'s body shape, allowing you to reproduce the guitar's natural sound when plugged into an amplifier. The mahogany neck features a comfortable, slim-taper C-shaped profile, inspired by Fender's electric legacy."
+    ]
   },
   {
     id: 13,
-    name: "Fender Alternative FA-235E Concert Moonlight Burst Electrot",
+    name: "Alternative FA-235E Concert Moonlight Burst Electrot",
     type: "Acoustic",
     price: "$249.00",
-    image:
+    images:[
       "https://mannsmusic.2dimg.com/4/rotated_no_ps___0971252035_gtr_frt_001_rr-1_e38d2552d4.jpg",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0971252035_gtr_frt_001_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0971252035_gtr_back_001_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0971252035_gtr_hdstckfrt_001_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0971252035_gtr_hdstckbck_001_nr.png",
+    ],
+    features: [
+      "All-laminate construction; flame maple top",
+      "Fender-exclusive CD-1 Fishman® pickup/preamp system",
+      "Modern 3+3 headstock; Viking bridge",
+      "Mahogany back & sides; mahogany neck",
+      "Aged white binding",
+    ],
+    summary:[
+      "Visually stunning, with a gorgeous flame maple top, the FA-235E offers legendary Fender sound at a budget friendly price. Quality laminate construction with a modern Fender 3+3 headstock and Viking bridge create an easy-playing instrument that sounds great. Modern Fishman electronics allowing you to take your sound to the stage with ease. Developing and experienced players alike will appreciate the mahogany neck that gives the guitar a lively tone while complementing the flame maple top."
+    ]
   },
   {
     id: 14,
-    name: "Fender California Sonoran Mini Natural Mahogany Short-Scale",
+    name: "California Sonoran Mini Natural Mahogany",
     type: "Acoustic",
     price: "$220.00",
-    image:
-      "https://mannsmusic.2dimg.com/4/rotated_no_ps___0970770122_fen_ins_frt_1_rr-1_cc63fb0a0c.jpg",
+    images:[
+      "https://giggear.2dimg.com/1/1_6e27c1f8ff.jpg",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970150022_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970150022_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970150022_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970150022_fen_ins_hbk_1_nr.png",
+    ],
+    features: [
+      "Concert body shape",
+      "Solid mahogany top with mahogany back and sides",
+      "Mahogany back and sides",
+      "Easy-to-play neck with rolled fingerboard edges",
+    ],
+    summary:[
+      "Compact and comfortable, the CC-60S is ideal for beginning players. The smaller concert-sized body is easy to maneuver in any playing position, with an articulate voice that's great for fingerpicking. Its tuneful solid mahogany top, easy-to-play neck, and mahogany back and sides make the CC-60S a perfect choice for the beach, the patio or the coffeehouse."
+    ]
   },
   {
     id: 15,
     name: "Fender Classic Design CC-60SCE Concert Black Electro",
     type: "Acoustic",
     price: "$179.00",
-    image: "https://mannsmusic.2dimg.com/4/rotated_no_ps___1_8b36b45551.jpg",
+    images: [
+      "https://mannsmusic.2dimg.com/4/rotated_no_ps___1_8b36b45551.jpg",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970153006_gtr_frt_001_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970153006_gtr_back_001_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970153006_gtr_hdstckfrt_001_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970153006_gtr_hdstckbck_001_nr.png",
+    ],
+    features: [
+      "Single-cutaway concert body style",
+      "Fishman® low-profile pickup/preamp",
+      "Solid spruce top with scalloped X-bracing",
+      "Mahogany back and sides",
+      "Easy-to-play neck with rolled fingerboard edges",
+    ],
+    summary:[
+      "Combining powerful onboard electronics - including a built-in tuner - with great tone and easy playability, the CC-60SCE is ideal for beginning to intermediate level players who are ready to plug in. The smaller concert-sized body is comfortable in any playing position, while the single-cutaway body provides easy access to the upper frets. Featuring a solid spruce top for increased volume and crisp sound, mahogany back and sides, and easy-to-play neck, the CC60-SCE is a perfect choice for the beach, the patio or the coffeehouse."
+    ]
   },
   {
     id: 16,
     name: "Fender Classic Design CP-60S Parlour Sunburst",
     type: "Acoustic",
-    price: "$159.00",
-    image: "https://mannsmusic.2dimg.com/4/rotated_no_ps___1_60fa94ecc1.jpg",
+    price: "$259.00",
+    images: [
+      "https://mannsmusic.2dimg.com/4/rotated_no_ps___1_60fa94ecc1.jpg",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970120032_fen_ins_frt_1_rr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970120032_fen_ins_bck_1_rl.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970120032_fen_ins_hft_1_nr.png",
+      "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=800/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970120032_fen_ins_hbk_1_nr.png",
+    ],
+    features: [
+      "Parlor body style",
+      "Solid spruce top with scalloped X-bracing",
+      "Mahogany back and sides",
+      "Easy-to-play neck with rolled fingerboard edges",
+    ],
+    summary:[
+      "The CP-60S acoustic guitar's parlor body style ensures a comfortable playing experience, thanks to its smaller size. It also sings with a distinctly warm and intimate voice traditionally embraced by folk and blues players, making this model an ideal choice for the up-and-coming fingerstyle player. Other features include a solid spruce top, mahogany back and sides, walnut fingerboard, rolled fingerboard edges and a new easy-to-play neck shape."
+    ]
   },
   {
     id: 17,
