@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { guitars } from "../data";
-import {Footer} from "../Footer"; 
+import { Footer } from "../Footer";
 
 const ElectricGuitars = () => {
   const electricGuitars = guitars.filter((g) => g.type === "Electric");
@@ -23,18 +23,20 @@ const ElectricGuitars = () => {
                   alt={guitar.name}
                   className="h-64 object-contain mb-4"
                 />
-
                 <h3 className="text-md font-medium text-gray-800 text-center">
                   {guitar.name}
                 </h3>
-
                 {/* Price */}
                 {guitar.price && (
                   <p className="text-lg font-bold text-black-500 mt-2">
-                    {guitar.price}
+                    {/* Format the number as USD */}
+                    {Number(guitar.price).toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                      minimumFractionDigits: 2,
+                    })}
                   </p>
                 )}
-
                 {/* Tag */}
                 {guitar.tag && (
                   <span className="mt-2 inline-block text-xs bg-purple-600 text-white px-3 py-1 rounded-full">

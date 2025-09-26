@@ -3,7 +3,7 @@ export const guitars = [
     id: 1,
     name: "Fender Squier Sonic Stratocaster® HSS",
     type: "Electric",
-    price: "$1,200.00",
+    price: 1200.00,
     images: [
       "https://engadinemusic.com.au/cdn/shop/files/Fender-Squier-Sonic-Stratocaster-HSS-LIMITED-COLOUR-EDITION-Electric-Guitar-Fender_600x.png?v=1746584940",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118220857_fen_ins_frt_1_rr.png",
@@ -25,7 +25,7 @@ export const guitars = [
     id: 2,
     name: "Classic Vibe '60s Coral Jazzmaster®",
     type: "Electric",
-    price: "$1,300.00",
+    price: 1300.00,
     images: [
       "https://www.fmicassets.com/Damroot/GuitarVert1/10066/0374083511_sqr_ins_frt_1_rr.png",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10066/0374083511_sqr_ins_frt_1_rr.png",
@@ -47,7 +47,7 @@ export const guitars = [
     id: 3,
     name: "American Ultra Luxe Vintage '60s Stratocaster®",
     type: "Electric",
-    price: "$1,250.00",
+    price: 1250.00,
     images: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsPL1byEWJjTW9gZrYC1UUyu2uruoQELno_g&s",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118220883_fen_ins_frt_1_rr.png",
@@ -69,7 +69,7 @@ export const guitars = [
     id: 4,
     name: "American Ultra Luxe Vintage '50s Telecaster®",
     type: "Electric",
-    price: "$1,150.00",
+    price: 1150.00,
     images: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBGS3eIV22LeKzO5S5mtk5IgaUAKALoM2-vA&s",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10099/0118242850_fen_ins_frt_1_rr.png",
@@ -91,7 +91,7 @@ export const guitars = [
     id: 5,
     name: "American Ultra Luxe Vintage '60s Stratocaster® HSS",
     type: "Electric",
-    price: "$1,900.00",
+    price: 1900.00,
     images: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDWhz0XBj_UUamoXMOmvSGK4EEdbm15ea7Pg&s",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10103/0118230840_fen_ins_frt_1_rr.png",
@@ -113,7 +113,7 @@ export const guitars = [
     id: 6,
     name: "Squier Sonic® Mustang® HH, California Blue",
     type: "Electric",
-    price: "$1,400.00",
+    price: 1400.00,
     images: [
       "https://s3-eu-west-1.amazonaws.com/webshop/data/thumbs/64/64cea27474a41e4e9c733b257b5deb657fd0a452.PNG",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10003/0373701526_sqr_ins_frt_1_rr.png",
@@ -135,7 +135,7 @@ export const guitars = [
     id: 7,
     name: "Squier Sonic Stratocaster®, Black, Left Handed",
     type: "Electric",
-    price: "$1,100.00",
+    price: 1100.00,
     images: [
       "https://m.media-amazon.com/images/I/51cT0L9dvYL._AC_.jpg",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10013/0373203506_sqr_ins_frt_1_rr.png",
@@ -157,7 +157,7 @@ export const guitars = [
     id: 8,
     name: "Butterscotch Blonde Standard Telecaster®",
     type: "Electric",
-    price: "$1,120.00",
+    price: 1120.00,
     images: [
       "https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/_60/608517/19758349_800.jpg",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10075/0266021550_fen_ins_frt_1_rr.png",
@@ -179,7 +179,7 @@ export const guitars = [
     id: 9,
     name: "California Standard Redondo™",
     type: "Acoustic",
-    price: "$400.00",
+    price: 400.00,
     images: [
       "https://media.guitarcenter.com/is/image/MMGS7/M20486000001000-02-600x600.jpg",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10101/0974200500_fen_ins_frt_1_rr.png",
@@ -202,7 +202,7 @@ export const guitars = [
     id: 10,
     name: "Fender FA-15N 3/4 Scale Nylon",
     type: "Acoustic",
-    price: "$300.00",
+    price: 300.00,
     images:[
       "https://www.fmicassets.com/Damroot/GuitarVert1/10005/0971160121_fen_ins_frt_1_rr.png",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10005/0971160121_fen_ins_frt_1_rr.png",
@@ -225,7 +225,7 @@ export const guitars = [
     id: 11,
     name: "CD-60SCE Dreadnought 12-String",
     type: "Acoustic",
-    price: "$249.00",
+    price: 249.00,
     images: [
       "https://mannsmusic.2dimg.com/4/rotated_no_ps___0970153021_gtr_frt_001_rr-1_9613d5630a.jpg",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970193021_gtr_frt_001_rr.png",
@@ -248,7 +248,7 @@ export const guitars = [
     id: 12,
     name: "Redondo™ Special Mahogany",
     type: "Acoustic",
-    price: "$200.00",
+    price: 200.00,
     images:[
       "https://www.austinbazaar.com/product_images/import/FEN-0970913122-2.jpg",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970913122_gtr_frt_001_rr.png",
@@ -271,7 +271,7 @@ export const guitars = [
     id: 13,
     name: "Alternative FA-235E Concert Moonlight Burst Electrot",
     type: "Acoustic",
-    price: "$249.00",
+    price: 249.00,
     images:[
       "https://mannsmusic.2dimg.com/4/rotated_no_ps___0971252035_gtr_frt_001_rr-1_e38d2552d4.jpg",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0971252035_gtr_frt_001_rr.png",
@@ -294,7 +294,7 @@ export const guitars = [
     id: 14,
     name: "California Sonoran Mini Natural Mahogany",
     type: "Acoustic",
-    price: "$220.00",
+    price: 220.00,
     images:[
       "https://giggear.2dimg.com/1/1_6e27c1f8ff.jpg",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970150022_fen_ins_frt_1_rr.png",
@@ -316,7 +316,7 @@ export const guitars = [
     id: 15,
     name: "Fender Classic Design CC-60SCE Concert Black Electro",
     type: "Acoustic",
-    price: "$179.00",
+    price: 179.00,
     images: [
       "https://mannsmusic.2dimg.com/4/rotated_no_ps___1_8b36b45551.jpg",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970153006_gtr_frt_001_rr.png",
@@ -339,7 +339,7 @@ export const guitars = [
     id: 16,
     name: "Fender Classic Design CP-60S Parlour Sunburst",
     type: "Acoustic",
-    price: "$259.00",
+    price: 259.00,
     images: [
       "https://mannsmusic.2dimg.com/4/rotated_no_ps___1_60fa94ecc1.jpg",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10001/0970120032_fen_ins_frt_1_rr.png",
@@ -361,7 +361,7 @@ export const guitars = [
     id: 17,
     name: "Player II Modified Active Precision Bass",
     type: "Bass",
-    price: "$1,000.00",
+    price: 1000.00,
     images: [
       "https://zedem.ca/cdn/shop/files/0147492310_fen_ins_frt_1_rr_186x526.png?v=1742910851",
       "https://www.fender.com/cdn-cgi/image/format=auto,resize=height=auto,width=1500/https://www.fmicassets.com/Damroot/eCommPNG/10083/0147492310_fen_ins_frt_1_rr.png",

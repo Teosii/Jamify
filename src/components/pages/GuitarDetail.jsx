@@ -1,8 +1,10 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { guitars } from "../data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Footer } from "../Footer";
+import formatPrice from "../../utils/formatPrice";
+import Cookies from "js-cookie"; 
 
 // Import Swiper styles
 import "swiper/css";
@@ -15,6 +17,7 @@ import { HiOutlineSupport } from "react-icons/hi"; // valid
 
 const GuitarDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const guitar = guitars.find((g) => g.id === Number(id));
 
   if (!guitar) {
@@ -25,6 +28,28 @@ const GuitarDetail = () => {
   const recommended = guitars.filter(
     (g) => g.type === guitar.type && g.id !== guitar.id
   );
+
+  // ✅ Add to cart with cookies
+  const handleBuyNow = () => {
+    const savedCart = JSON.parse(Cookies.get("guitarCart") || "[]");
+
+    const existingIndex = savedCart.findIndex((item) => item.id === guitar.id);
+    if (existingIndex >= 0) {
+      savedCart[existingIndex].quantity += 1;
+    } else {
+      savedCart.push({
+        id: guitar.id,
+        name: guitar.name,
+        type: guitar.type,
+        price: guitar.price,
+        image: guitar.images[0],
+        quantity: 1,
+      });
+    }
+
+    Cookies.set("guitarCart", JSON.stringify(savedCart), { expires: 7 }); 
+    navigate("/shoppingCart"); // redirect
+  };
 
   return (
     <>
@@ -57,7 +82,7 @@ const GuitarDetail = () => {
           <h2 className="text-4xl font-bold mb-5">{guitar.name}</h2>
           <p className="text-xl text-gray-600 mb-2">{guitar.type} Guitar</p>
           <p className="text-2xl font-semibold text-gray-800 mb-6">
-            {guitar.price}
+            {formatPrice(guitar.price)}
           </p>
 
           {/* Dynamic info list */}
@@ -69,15 +94,18 @@ const GuitarDetail = () => {
             </ul>
           )}
 
-          <button className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition w-fit">
-            <Link to="/shoppingCart">Buy Now</Link>
+          {/* ✅ Buy Now button saves to cookies */}
+          <button
+            onClick={handleBuyNow}
+            className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition w-fit"
+          >
+            Buy Now
           </button>
         </div>
       </div>
 
       {/* Summary + Shipping/Returns Section */}
       <div className="px-5 md:px-10 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Summary */}
         {guitar.summary && (
           <div>
             <h3 className="text-2xl font-bold mb-4">Summary</h3>
@@ -87,7 +115,6 @@ const GuitarDetail = () => {
           </div>
         )}
 
-        {/* Shipping & Returns */}
         <div>
           <h3 className="text-2xl font-bold mb-5">Shipping & Returns</h3>
           <div className="mb-6">
@@ -97,7 +124,6 @@ const GuitarDetail = () => {
               <span className="font-medium">$1500+</span>.{" "}
             </p>
           </div>
-
           <div>
             <h4 className="text-lg font-semibold mb-1">Returns</h4>
             <p className="text-gray-600">
@@ -127,7 +153,7 @@ const GuitarDetail = () => {
               <h4 className="font-semibold text-lg">{rec.name}</h4>
               <p className="text-sm text-gray-500">{rec.type} Guitar</p>
               <p className="text-md font-bold text-gray-800 mt-2">
-                {rec.price}
+                {formatPrice(rec.price)}
               </p>
             </Link>
           ))}
@@ -136,7 +162,6 @@ const GuitarDetail = () => {
 
       {/* Features Section */}
       <div className="flex flex-wrap justify-between items-center py-20">
-        {/* Feature 1 */}
         <div className="flex flex-col items-center text-center w-1/2 md:w-1/4 px-2 mb-4 md:mb-0">
           <BsShieldCheck className="w-10 h-10 mb-4 text-gray-700" />
           <p className="text-sm text-gray-600">
@@ -144,8 +169,6 @@ const GuitarDetail = () => {
             assurance.
           </p>
         </div>
-
-        {/* Feature 2 */}
         <div className="flex flex-col items-center text-center w-1/2 md:w-1/4 px-2 mb-4 md:mb-0">
           <BsTruck className="w-10 h-10 mb-4 text-gray-700" />
           <p className="text-sm text-gray-600">
@@ -153,8 +176,6 @@ const GuitarDetail = () => {
             orders over $0.
           </p>
         </div>
-
-        {/* Feature 3 */}
         <div className="flex flex-col items-center text-center w-1/2 md:w-1/4 px-2 mb-4 md:mb-0">
           <BsArrowRepeat className="w-10 h-10 mb-4 text-gray-700" />
           <p className="text-sm text-gray-600">
@@ -162,8 +183,6 @@ const GuitarDetail = () => {
             within 30 days of receipt.
           </p>
         </div>
-
-        {/* Feature 4 */}
         <div className="flex flex-col items-center text-center w-1/2 md:w-1/4 px-2">
           <HiOutlineSupport className="w-10 h-10 mb-4 text-gray-700" />
           <p className="text-sm text-gray-600">

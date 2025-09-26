@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { guitars } from "../data";
-import { Footer } from "../Footer"; 
+import { Footer } from "../Footer";
 
 const AcousticGuitars = () => {
   const acousticGuitars = guitars.filter((g) => g.type === "Acoustic");
@@ -31,7 +31,12 @@ const AcousticGuitars = () => {
                 {/* Price */}
                 {guitar.price && (
                   <p className="text-lg font-bold text-black-500 mt-2">
-                    {guitar.price}
+                    {/* Format the number as USD */}
+                    {Number(guitar.price).toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                      minimumFractionDigits: 2,
+                    })}
                   </p>
                 )}
 
