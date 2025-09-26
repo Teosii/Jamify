@@ -1,10 +1,11 @@
+import React, { useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { guitars } from "../data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Footer } from "../Footer";
 import formatPrice from "../../utils/formatPrice";
-import Cookies from "js-cookie"; 
+import Cookies from "js-cookie";
 
 // Import Swiper styles
 import "swiper/css";
@@ -20,6 +21,8 @@ const GuitarDetail = () => {
   const navigate = useNavigate();
   const guitar = guitars.find((g) => g.id === Number(id));
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   if (!guitar) {
     return <p className="text-center text-gray-500">Guitar not found.</p>;
   }
@@ -29,8 +32,12 @@ const GuitarDetail = () => {
     (g) => g.type === guitar.type && g.id !== guitar.id
   );
 
-  // ✅ Add to cart with cookies
   const handleBuyNow = () => {
+    if (!isLoggedIn) {
+      alert("Please log in or sign up to purchase this item.");
+      navigate("/login");
+      return; // Stop execution if the user isn't logged in
+    }
     const savedCart = JSON.parse(Cookies.get("guitarCart") || "[]");
 
     const existingIndex = savedCart.findIndex((item) => item.id === guitar.id);
@@ -47,7 +54,7 @@ const GuitarDetail = () => {
       });
     }
 
-    Cookies.set("guitarCart", JSON.stringify(savedCart), { expires: 7 }); 
+    Cookies.set("guitarCart", JSON.stringify(savedCart), { expires: 7 });
     navigate("/shoppingCart"); // redirect
   };
 
@@ -76,9 +83,18 @@ const GuitarDetail = () => {
             ))}
           </Swiper>
         </div>
-
         {/* RIGHT: Guitar details */}
         <div className="flex flex-col pt-20 px-20">
+          {/* Mock Login/Logout button for testing */}
+          <button
+            onClick={() => setIsLoggedIn(!isLoggedIn)}
+            className={`absolute top-4 right-4 text-sm font-medium px-3 py-1 rounded ${
+              isLoggedIn ? "bg-red-500 text-white" : "bg-green-500 text-white"
+            }`}
+          >
+            {isLoggedIn ? "Log Out (Testing)" : "Log In (Testing)"}
+          </button>
+
           <h2 className="text-4xl font-bold mb-5">{guitar.name}</h2>
           <p className="text-xl text-gray-600 mb-2">{guitar.type} Guitar</p>
           <p className="text-2xl font-semibold text-gray-800 mb-6">
@@ -94,13 +110,25 @@ const GuitarDetail = () => {
             </ul>
           )}
 
-          {/* ✅ Buy Now button saves to cookies */}
+          {/* ✅ Buy Now button with authentication check */}
           <button
             onClick={handleBuyNow}
-            className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition w-fit"
+            // Use different styling to hint at the restriction
+            className={`px-8 py-4 rounded-lg transition w-fit font-semibold 
+                        ${
+                          isLoggedIn
+                            ? "bg-black text-white hover:bg-gray-800"
+                            : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        }`}
+            disabled={!isLoggedIn && true} // Disable the button visually
           >
             Buy Now
           </button>
+          {!isLoggedIn && (
+            <p className="text-red-500 text-sm mt-2">
+              Please log in to make a purchase.
+            </p>
+          )}
         </div>
       </div>
 
