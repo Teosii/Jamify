@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { GiGuitarHead } from "react-icons/gi";
 import { FaGoogle, FaFacebook, FaEnvelope } from "react-icons/fa";
 import { useNavigate, Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -31,6 +32,7 @@ const Signup = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
+        credentials: "include", // ✅ cookie-based auth
       });
 
       const data = await res.json();
@@ -39,10 +41,16 @@ const Signup = () => {
         return;
       }
 
-      // Save token and user (auto-login)
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-      navigate("/"); // redirect to home
+      // ✅ Show sweet alert on success
+      Swal.fire({
+        icon: "success",
+        title: "Welcome to Jamify 🎶",
+        text: "Your account has been created successfully!",
+        confirmButtonColor: "#ef4444", // red-500
+      }).then(() => {
+        // redirect after user clicks OK
+        navigate("/login");
+      });
     } catch (err) {
       console.error(err);
       setError("Server error. Please try again later.");
@@ -131,4 +139,3 @@ const Signup = () => {
 };
 
 export default Signup;
-

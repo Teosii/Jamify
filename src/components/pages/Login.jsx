@@ -2,45 +2,67 @@
 import React, { useState } from "react";
 import { GiGuitarHead } from "react-icons/gi";
 import { useNavigate, Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // ✅ simple validation
     if (!email.includes("@") || password.length < 6) {
-      setError("⚠️ Invalid email or password. Please try again!");
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Input ⚠️",
+        text: "Please enter a valid email and password (min 6 characters).",
+        confirmButtonColor: "#ef4444",
+      });
       return;
     }
-    setError("");
 
     try {
       const res = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
+        credentials: "include", // ✅ allow cookies from backend
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error || data.message || "Login failed.");
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed ❌",
+          text: data.error || data.message || "Invalid credentials.",
+          confirmButtonColor: "#ef4444",
+        });
         return;
       }
 
-      // Save token and user
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-
-      navigate("/"); // redirect to home
+      // ✅ At this point, backend should have set the cookie (HTTP-only JWT/session)
+      Swal.fire({
+        icon: "success",
+        title: "Welcome back 🎸",
+        text: `Hello ${data.user?.name || "musician"}!`,
+        confirmButtonColor: "#ef4444",
+        timer: 2000,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/"); // redirect to homepage
+      });
     } catch (err) {
-      console.error(err);
-      setError("Server error. Please try again later.");
+      console.error("Login error:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Server Error ⚠️",
+        text: "Something went wrong. Please try again later.",
+        confirmButtonColor: "#ef4444",
+      });
     }
   };
 
@@ -54,12 +76,6 @@ const Login = () => {
           <GiGuitarHead className="text-red-500 text-4xl mr-2" />
           <h2 className="text-3xl font-bold text-gray-800">Jamify Log in</h2>
         </div>
-
-        {error && (
-          <div className="mb-4 p-3 text-red-700 bg-red-100 rounded-lg border border-red-300 shadow">
-            {error}
-          </div>
-        )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -98,5 +114,3 @@ const Login = () => {
 };
 
 export default Login;
-
-

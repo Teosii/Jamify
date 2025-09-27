@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { guitars } from "../data";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,69 +6,104 @@ import { Navigation, Pagination } from "swiper/modules";
 import { Footer } from "../Footer";
 import formatPrice from "../../utils/formatPrice";
 import Cookies from "js-cookie";
-
-// Import Swiper styles
+import Swal from "sweetalert2";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-// Import react-icons
 import { BsShieldCheck, BsTruck, BsArrowRepeat } from "react-icons/bs";
-import { HiOutlineSupport } from "react-icons/hi"; // valid
+import { HiOutlineSupport } from "react-icons/hi";
 
 const GuitarDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const guitar = guitars.find((g) => g.id === Number(id));
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  if (!guitar) {
-    return <p className="text-center text-gray-500">Guitar not found.</p>;
-  }
+  useEffect(() => {
+    // Check login status via /me endpoint
+    fetch("http://localhost:5000/me", {
+      method: "GET",
+      credentials: "include", // send cookies
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.user) {
+          setIsLoggedIn(true);
+        } else {
+          setIsLoggedIn(false);
+          Swal.fire({
+            icon: "warning",
+            title: "Login required",
+            text: "Please log in to view guitar details.",
+            confirmButtonText: "Go to Login",
+          }).then(() => navigate("/login"));
+        }
+      })
+      .catch(() => {
+        setIsLoggedIn(false);
+        Swal.fire({
+          icon: "error",
+          title: "Server Error",
+          text: "Could not verify login status.",
+        });
+      });
+  }, [navigate]);
 
-  // Pick 4 other guitars for "You May Also Like"
+  if (!guitar)
+    return <p className="text-center text-gray-500">Guitar not found.</p>;
+
   const recommended = guitars.filter(
     (g) => g.type === guitar.type && g.id !== guitar.id
   );
 
   const handleBuyNow = () => {
-    if (!isLoggedIn) {
-      alert("Please log in or sign up to purchase this item.");
-      navigate("/login");
-      return; // Stop execution if the user isn't logged in
-    }
-    const savedCart = JSON.parse(Cookies.get("guitarCart") || "[]");
+    const savedCart = Cookies.get("guitarCart");
+    let cart = [];
 
-    const existingIndex = savedCart.findIndex((item) => item.id === guitar.id);
+    if (savedCart) {
+      try {
+        cart = JSON.parse(savedCart); // parse existing cart
+      } catch {
+        cart = [];
+      }
+    }
+
+    const existingIndex = cart.findIndex((item) => item.id === guitar.id);
     if (existingIndex >= 0) {
-      savedCart[existingIndex].quantity += 1;
+      cart[existingIndex].quantity += 1;
     } else {
-      savedCart.push({
+      cart.push({
         id: guitar.id,
         name: guitar.name,
         type: guitar.type,
-        price: guitar.price,
+        price: Number(guitar.price), // ensure price is a number
         image: guitar.images[0],
         quantity: 1,
       });
     }
 
-    Cookies.set("guitarCart", JSON.stringify(savedCart), { expires: 7 });
-    navigate("/shoppingCart"); // redirect
+    Cookies.set("guitarCart", JSON.stringify(cart), { expires: 7 }); // ✅ save to cookie
+
+    Swal.fire({
+      icon: "success",
+      title: "Added to cart!",
+      text: `${guitar.name} has been added to your cart.`,
+      timer: 1500,
+      showConfirmButton: false,
+    });
+
+    navigate("/shoppingCart");
   };
 
   return (
     <>
       <div className="w-100 h-screen grid grid-cols-1 md:grid-cols-2">
-        {/* LEFT: Image slider */}
         <div className="h-100 bg-gray-50 flex items-center justify-center">
           <Swiper
             spaceBetween={10}
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
-            initialSlide={0}
             modules={[Navigation, Pagination]}
             className="w-full h-full"
           >
@@ -83,26 +118,15 @@ const GuitarDetail = () => {
             ))}
           </Swiper>
         </div>
-        {/* RIGHT: Guitar details */}
-        <div className="flex flex-col pt-20 px-20">
-          {/* Mock Login/Logout button for testing */}
-          <button
-            onClick={() => setIsLoggedIn(!isLoggedIn)}
-            className={`absolute top-4 right-4 text-sm font-medium px-3 py-1 rounded ${
-              isLoggedIn ? "bg-red-500 text-white" : "bg-green-500 text-white"
-            }`}
-          >
-            {isLoggedIn ? "Log Out (Testing)" : "Log In (Testing)"}
-          </button>
 
+        <div className="flex flex-col pt-20 px-20">
           <h2 className="text-4xl font-bold mb-5">{guitar.name}</h2>
           <p className="text-xl text-gray-600 mb-2">{guitar.type} Guitar</p>
           <p className="text-2xl font-semibold text-gray-800 mb-6">
             {formatPrice(guitar.price)}
           </p>
 
-          {/* Dynamic info list */}
-          {guitar.features && guitar.features.length > 0 && (
+          {guitar.features && (
             <ul className="mb-6 space-y-2 list-disc list-inside text-gray-700">
               {guitar.features.map((feature, index) => (
                 <li key={index}>{feature}</li>
@@ -110,29 +134,15 @@ const GuitarDetail = () => {
             </ul>
           )}
 
-          {/* ✅ Buy Now button with authentication check */}
           <button
             onClick={handleBuyNow}
-            // Use different styling to hint at the restriction
-            className={`px-8 py-4 rounded-lg transition w-fit font-semibold 
-                        ${
-                          isLoggedIn
-                            ? "bg-black text-white hover:bg-gray-800"
-                            : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                        }`}
-            disabled={!isLoggedIn && true} // Disable the button visually
+            className="px-8 py-4 rounded-lg transition w-fit font-semibold bg-black text-white hover:bg-gray-800"
           >
             Buy Now
           </button>
-          {!isLoggedIn && (
-            <p className="text-red-500 text-sm mt-2">
-              Please log in to make a purchase.
-            </p>
-          )}
         </div>
       </div>
 
-      {/* Summary + Shipping/Returns Section */}
       <div className="px-5 md:px-10 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
         {guitar.summary && (
           <div>
@@ -149,20 +159,19 @@ const GuitarDetail = () => {
             <h4 className="text-lg font-semibold mb-1">Shipping</h4>
             <p className="text-gray-600">
               Free shipping on orders{" "}
-              <span className="font-medium">$1500+</span>.{" "}
+              <span className="font-medium">$1500+</span>.
             </p>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-1">Returns</h4>
             <p className="text-gray-600">
-              Return or exchange your purchase for any reason within{" "}
-              <span className="font-medium">30 days of receipt</span>.{" "}
+              Return or exchange your purchase within{" "}
+              <span className="font-medium">30 days</span>.
             </p>
           </div>
         </div>
       </div>
 
-      {/* You May Also Like Section */}
       <div className="px-6 md:px-10 py-10">
         <h3 className="text-2xl font-bold mb-6">You May Also Like</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -188,7 +197,6 @@ const GuitarDetail = () => {
         </div>
       </div>
 
-      {/* Features Section */}
       <div className="flex flex-wrap justify-between items-center py-20">
         <div className="flex flex-col items-center text-center w-1/2 md:w-1/4 px-2 mb-4 md:mb-0">
           <BsShieldCheck className="w-10 h-10 mb-4 text-gray-700" />
@@ -208,7 +216,7 @@ const GuitarDetail = () => {
           <BsArrowRepeat className="w-10 h-10 mb-4 text-gray-700" />
           <p className="text-sm text-gray-600">
             <span className="font-semibold">Easy returns & exchanges</span>{" "}
-            within 30 days of receipt.
+            within 30 days.
           </p>
         </div>
         <div className="flex flex-col items-center text-center w-1/2 md:w-1/4 px-2">
@@ -216,8 +224,9 @@ const GuitarDetail = () => {
           <p className="text-sm text-gray-600">
             Get{" "}
             <span className="font-semibold">
-              support from our expert gear advisors.
+              support from our expert gear advisors
             </span>
+            .
           </p>
         </div>
       </div>
