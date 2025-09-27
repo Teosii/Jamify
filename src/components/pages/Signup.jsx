@@ -1,6 +1,8 @@
+// src/components/pages/Signup.jsx
 import React, { useState } from "react";
 import { GiGuitarHead } from "react-icons/gi";
 import { FaGoogle, FaFacebook, FaEnvelope } from "react-icons/fa";
+import { useNavigate, Link } from "react-router-dom";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -8,23 +10,43 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email.includes("@") || password.length < 6) {
       setError("⚠️ Invalid email or password. Please try again!");
       return;
     }
-
     if (password !== confirmPassword) {
       setError("⚠️ Passwords do not match!");
       return;
     }
-
     setError("");
-    console.log("Signing up with:", { name, email, password });
-    
+
+    try {
+      const res = await fetch(`${API_URL}/signup`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || data.message || "Signup failed.");
+        return;
+      }
+
+      // Save token and user (auto-login)
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      navigate("/"); // redirect to home
+    } catch (err) {
+      console.error(err);
+      setError("Server error. Please try again later.");
+    }
   };
 
   return (
@@ -44,7 +66,6 @@ const Signup = () => {
           </div>
         )}
 
-        {/* Continue with buttons */}
         <div className="space-y-3">
           <button className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition">
             <FaGoogle className="text-red-500" /> Continue with Google
@@ -57,7 +78,6 @@ const Signup = () => {
           </button>
         </div>
 
-        {/* Signup form */}
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <input
             type="text"
@@ -101,9 +121,9 @@ const Signup = () => {
 
         <p className="text-center text-sm text-gray-600 mt-4">
           Already have an account?{" "}
-          <a href="/Login" className="text-red-500 font-medium">
+          <Link to="/Login" className="text-red-500 font-medium">
             Log In
-          </a>
+          </Link>
         </p>
       </div>
     </div>

@@ -1,22 +1,47 @@
+// src/components/pages/Login.jsx
 import React, { useState } from "react";
 import { GiGuitarHead } from "react-icons/gi";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email.includes("@") || password.length < 6) {
       setError("⚠️ Invalid email or password. Please try again!");
       return;
     }
-
     setError("");
-    console.log("Logging in with:", { email, password });
-    
+
+    try {
+      const res = await fetch(`${API_URL}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || data.message || "Login failed.");
+        return;
+      }
+
+      // Save token and user
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      navigate("/"); // redirect to home
+    } catch (err) {
+      console.error(err);
+      setError("Server error. Please try again later.");
+    }
   };
 
   return (
@@ -63,9 +88,9 @@ const Login = () => {
 
         <p className="text-center text-sm text-gray-600 mt-4">
           Don’t have an account?{" "}
-          <a href="/Signup" className="text-red-500 font-medium">
+          <Link to="/Signup" className="text-red-500 font-medium">
             Sign Up
-          </a>
+          </Link>
         </p>
       </div>
     </div>
@@ -73,4 +98,5 @@ const Login = () => {
 };
 
 export default Login;
+
 
