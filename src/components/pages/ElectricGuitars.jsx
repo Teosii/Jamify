@@ -29,7 +29,6 @@ const ElectricGuitars = () => {
                 {/* Price */}
                 {guitar.price && (
                   <p className="text-lg font-bold text-black-500 mt-2">
-                    {/* Format the number as USD */}
                     {Number(guitar.price).toLocaleString("en-US", {
                       style: "currency",
                       currency: "USD",

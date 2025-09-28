@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "aos": "^2.3.4",
+    "axios": "^1.12.2",
     "body-parser": "^2.2.0",
     "browserslist": "^4.25.2",
     "cookie-parser": "^1.4.7",

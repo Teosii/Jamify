@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FaSearch,
   FaBars,
@@ -14,9 +15,6 @@ import {
 } from "react-icons/fa";
 
 const HeroSection = () => {
-  const [selectedColor, setSelectedColor] = useState("white");
-  const colors = ["bg-orange-800", "bg-amber-100", "bg-red-800", "bg-blue-800"];
-
   return (
     <section className="relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center justify-between">
@@ -43,30 +41,6 @@ const HeroSection = () => {
             <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
               Learn More
             </button>
-          </div>
-
-          <div className="flex space-x-2 pt-8">
-            <span className="w-8 h-[2px] bg-red-600"></span>
-            <span className="w-8 h-[2px] bg-gray-300 hover:bg-gray-400 cursor-pointer"></span>
-            <span className="w-8 h-[2px] bg-gray-300 hover:bg-gray-400 cursor-pointer"></span>
-          </div>
-
-          {/* Colors */}
-          <div className="pt-8">
-            <p className="text-sm text-gray-500 mb-2">AVAILABLE COLORS</p>
-            <div className="flex space-x-3">
-              {colors.map((color, idx) => (
-                <div
-                  key={idx}
-                  className={`color-option w-8 h-8 rounded-full cursor-pointer border-2 ${
-                    selectedColor === color
-                      ? "border-red-600"
-                      : "border-transparent"
-                  } ${color}`}
-                  onClick={() => setSelectedColor(color)}
-                ></div>
-              ))}
-            </div>
           </div>
         </div>
 
@@ -125,10 +99,12 @@ const HeroSection = () => {
         />
 
         {/* Button over image */}
-        <a href="/electric-guitars"  className="absolute top-1/2 left-1/2 -translate-x-1/2 bg-white text-black px-8 py-4 rounded-lg hover:bg-gray-800 transition"
+        <Link
+          to="/electric-guitars"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 bg-white text-black px-8 py-4 rounded-lg hover:bg-gray-800 hover:text-white transition shadow-lg"
         >
           Discover more
-        </a>
+        </Link>
       </div>
 
       {/* Background Elements */}

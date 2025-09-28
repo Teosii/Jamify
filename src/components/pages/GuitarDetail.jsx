@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Footer } from "../Footer";
 import formatPrice from "../../utils/formatPrice";
-import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -27,27 +26,11 @@ const GuitarDetail = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.user) {
-          setIsLoggedIn(true);
-        } else {
-          setIsLoggedIn(false);
-          Swal.fire({
-            icon: "warning",
-            title: "Login required",
-            text: "Please log in to view guitar details.",
-            confirmButtonText: "Go to Login",
-          }).then(() => navigate("/login"));
-        }
+        if (data.user) setIsLoggedIn(true);
+        else setIsLoggedIn(false);
       })
-      .catch(() => {
-        setIsLoggedIn(false);
-        Swal.fire({
-          icon: "error",
-          title: "Server Error",
-          text: "Could not verify login status.",
-        });
-      });
-  }, [navigate]);
+      .catch(() => setIsLoggedIn(false));
+  }, []);
 
   if (!guitar)
     return <p className="text-center text-gray-500">Guitar not found.</p>;
@@ -56,43 +39,53 @@ const GuitarDetail = () => {
     (g) => g.type === guitar.type && g.id !== guitar.id
   );
 
-  const handleBuyNow = () => {
-    const savedCart = Cookies.get("guitarCart");
-    let cart = [];
-
-    if (savedCart) {
-      try {
-        cart = JSON.parse(savedCart); // parse existing cart
-      } catch {
-        cart = [];
-      }
+  const handleBuyNow = async () => {
+    if (!isLoggedIn) {
+      Swal.fire({
+        icon: "warning",
+        title: "Login required",
+        text: "You must log in before adding items to the cart.",
+        confirmButtonText: "Go to Login",
+      }).then(() => navigate("/login"));
+      return;
     }
 
-    const existingIndex = cart.findIndex((item) => item.id === guitar.id);
-    if (existingIndex >= 0) {
-      cart[existingIndex].quantity += 1;
-    } else {
-      cart.push({
-        id: guitar.id,
-        name: guitar.name,
-        type: guitar.type,
-        price: Number(guitar.price), // ensure price is a number
-        image: guitar.images[0],
-        quantity: 1,
+    try {
+      const res = await fetch("http://localhost:5000/cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ guitarId: guitar.id, quantity: 1 }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: data.error || "Could not add to cart",
+        });
+        return;
+      }
+
+      Swal.fire({
+        icon: "success",
+        title: "Added to cart!",
+        text: `${guitar.name} has been added to your cart.`,
+        timer: 1500,
+        showConfirmButton: false,
+      });
+
+      navigate("/shoppingCart");
+    } catch (err) {
+      console.error(err);
+      Swal.fire({
+        icon: "error",
+        title: "Server error",
+        text: "Could not add item to cart.",
       });
     }
-
-    Cookies.set("guitarCart", JSON.stringify(cart), { expires: 7 }); // ✅ save to cookie
-
-    Swal.fire({
-      icon: "success",
-      title: "Added to cart!",
-      text: `${guitar.name} has been added to your cart.`,
-      timer: 1500,
-      showConfirmButton: false,
-    });
-
-    navigate("/shoppingCart");
   };
 
   return (
