@@ -74,17 +74,29 @@ const Signup = () => {
           </div>
         )}
 
-        <div className="space-y-3">
-          <button className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition">
-            <FaGoogle className="text-red-500" /> Continue with Google
-          </button>
-          <button className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition">
-            <FaFacebook className="text-blue-600" /> Continue with Facebook
-          </button>
-          <button className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition">
-            <FaEnvelope className="text-gray-700" /> Continue with Email
-          </button>
-        </div>
+     <div className="space-y-3">
+  <button
+    onClick={() => window.open("https://www.google.com", "_blank")}
+    className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition"
+  >
+    <FaGoogle className="text-red-500" /> Continue with Google
+  </button>
+
+  <button
+    onClick={() => window.open("https://www.facebook.com", "_blank")}
+    className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition"
+  >
+    <FaFacebook className="text-blue-600" /> Continue with Facebook
+  </button>
+
+  <button
+    onClick={() => window.open("https://mail.google.com", "_blank")}
+    className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition"
+  >
+    <FaEnvelope className="text-gray-700" /> Continue with Email
+  </button>
+</div>
+
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <input
