@@ -35,12 +35,11 @@ const HeroSection = () => {
           </p>
 
           <div className="flex space-x-4 pt-2">
-            <button className="bg-red-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-red-200">
-              Shop Now
-            </button>
-            <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
-              Learn More
-            </button>
+            <Link to="/electric-guitars">
+              <button className="bg-red-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-red-200">
+                Shop Now
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -100,7 +99,7 @@ const HeroSection = () => {
 
         {/* Button over image */}
         <Link
-          to="/electric-guitars"
+          to="/acoustic-guitars"
           className="absolute top-1/2 left-1/2 -translate-x-1/2 bg-white text-black px-8 py-4 rounded-lg hover:bg-gray-800 hover:text-white transition shadow-lg"
         >
           Discover more

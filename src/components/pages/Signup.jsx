@@ -1,4 +1,3 @@
-// src/components/pages/Signup.jsx
 import React, { useState } from "react";
 import { GiGuitarHead } from "react-icons/gi";
 import { FaGoogle, FaFacebook, FaEnvelope } from "react-icons/fa";
@@ -10,7 +9,6 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
@@ -18,42 +16,51 @@ const Signup = () => {
     e.preventDefault();
 
     if (!email.includes("@") || password.length < 6) {
-      setError("⚠️ Invalid email or password. Please try again!");
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Input ⚠️",
+        text: "Please enter a valid email and password (min 6 characters).",
+      });
       return;
     }
+
     if (password !== confirmPassword) {
-      setError("⚠️ Passwords do not match!");
+      Swal.fire({
+        icon: "error",
+        title: "Password Mismatch ⚠️",
+        text: "Passwords do not match.",
+      });
       return;
     }
-    setError("");
 
     try {
       const res = await fetch(`${API_URL}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
-        credentials: "include", // ✅ cookie-based auth
+        credentials: "include",
       });
 
-      const data = await res.json();
-      if (!res.ok) {
-        setError(data.error || data.message || "Signup failed.");
-        return;
+      const contentType = res.headers.get("content-type");
+
+      let data;
+      if (contentType && contentType.includes("application/json")) {
+        data = await res.json();
+      } else {
+        const text = await res.text();
+        throw new Error(`Unexpected response from server: ${text}`);
       }
 
-      // ✅ Show sweet alert on success
+      if (!res.ok) throw new Error(data.error || "Signup failed");
+
       Swal.fire({
         icon: "success",
         title: "Welcome to Jamify 🎶",
-        text: "Your account has been created successfully!",
-        confirmButtonColor: "#ef4444", // red-500
-      }).then(() => {
-        // redirect after user clicks OK
-        navigate("/login");
-      });
+        text: "Your account has been created!",
+      }).then(() => navigate("/login"));
     } catch (err) {
-      console.error(err);
-      setError("Server error. Please try again later.");
+      console.error("Signup error:", err);
+      Swal.fire({ icon: "error", title: "Signup Failed", text: err.message });
     }
   };
 
@@ -68,35 +75,28 @@ const Signup = () => {
           <h2 className="text-3xl font-bold text-gray-800">Jamify Sign Up</h2>
         </div>
 
-        {error && (
-          <div className="mb-4 p-3 text-red-700 bg-red-100 rounded-lg border border-red-300 shadow">
-            {error}
-          </div>
-        )}
+        <div className="space-y-3">
+          <button
+            onClick={() => window.open("https://www.google.com", "_blank")}
+            className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition"
+          >
+            <FaGoogle className="text-red-500" /> Continue with Google
+          </button>
 
-     <div className="space-y-3">
-  <button
-    onClick={() => window.open("https://www.google.com", "_blank")}
-    className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition"
-  >
-    <FaGoogle className="text-red-500" /> Continue with Google
-  </button>
+          <button
+            onClick={() => window.open("https://www.facebook.com", "_blank")}
+            className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition"
+          >
+            <FaFacebook className="text-blue-600" /> Continue with Facebook
+          </button>
 
-  <button
-    onClick={() => window.open("https://www.facebook.com", "_blank")}
-    className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition"
-  >
-    <FaFacebook className="text-blue-600" /> Continue with Facebook
-  </button>
-
-  <button
-    onClick={() => window.open("https://mail.google.com", "_blank")}
-    className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition"
-  >
-    <FaEnvelope className="text-gray-700" /> Continue with Email
-  </button>
-</div>
-
+          <button
+            onClick={() => window.open("https://mail.google.com", "_blank")}
+            className="w-full flex items-center justify-center gap-2 border py-3 rounded-xl hover:bg-gray-100 transition"
+          >
+            <FaEnvelope className="text-gray-700" /> Continue with Email
+          </button>
+        </div>
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <input

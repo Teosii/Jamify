@@ -1,4 +1,3 @@
-// src/components/pages/Login.jsx
 import React, { useState } from "react";
 import { GiGuitarHead } from "react-icons/gi";
 import { useNavigate, Link } from "react-router-dom";
@@ -10,61 +9,53 @@ const Login = () => {
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // ✅ simple validation
-    if (!email.includes("@") || password.length < 6) {
-      Swal.fire({
-        icon: "error",
-        title: "Invalid Input ⚠️",
-        text: "Please enter a valid email and password (min 6 characters).",
-        confirmButtonColor: "#ef4444",
-      });
-      return;
+  if (!email.includes("@") || password.length < 6) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Input ⚠️",
+      text: "Please enter a valid email and password (min 6 characters).",
+      confirmButtonColor: "#ef4444",
+    });
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API_URL}/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+      credentials: "include",
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Login failed");
+
+    Swal.fire({
+      icon: "success",
+      title: `Welcome back, ${data.user.name}! 🎸`,
+      timer: 2000,
+      showConfirmButton: false,
+    });
+
+    // Redirect based on role
+    if (data.user.role === "admin") {
+      navigate("/admin/dashboard");
+    } else {
+      navigate("/shop");
     }
+  } catch (err) {
+    console.error("Login error:", err);
+    Swal.fire({
+      icon: "error",
+      title: "Login Failed",
+      text: err.message,
+    });
+  }
+};
 
-    try {
-      const res = await fetch(`${API_URL}/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-        credentials: "include", // ✅ allow cookies from backend
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        Swal.fire({
-          icon: "error",
-          title: "Login Failed ❌",
-          text: data.error || data.message || "Invalid credentials.",
-          confirmButtonColor: "#ef4444",
-        });
-        return;
-      }
-
-      // ✅ At this point, backend should have set the cookie (HTTP-only JWT/session)
-      Swal.fire({
-        icon: "success",
-        title: "Welcome back 🎸",
-        text: `Hello ${data.user?.name || "musician"}!`,
-        confirmButtonColor: "#ef4444",
-        timer: 2000,
-        showConfirmButton: false,
-      }).then(() => {
-        navigate("/"); // redirect to homepage
-      });
-    } catch (err) {
-      console.error("Login error:", err);
-      Swal.fire({
-        icon: "error",
-        title: "Server Error ⚠️",
-        text: "Something went wrong. Please try again later.",
-        confirmButtonColor: "#ef4444",
-      });
-    }
-  };
 
   return (
     <div
